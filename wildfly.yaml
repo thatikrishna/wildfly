@@ -17,9 +17,9 @@
         state: present
 
     - name: downloading tar files
-      ansible.builtin.get_url :
+      ansible.builtin.get_url:
         url: "{{wildfly_url}}"
-        dest: /home/krish/
+        dest: /home/jenkins/
 
     - name: Creating Wildfly directory
       ansible.builtin.file:
@@ -29,7 +29,7 @@
     - name: Untar the Wildfly files
       ansible.builtin.unarchive:
         remote_src: yes
-        src: /home/krish/wildfly-16.0.0.Final.tar.gz
+        src: /home/jenkins/wildfly-16.0.0.Final.tar.gz
         dest: "{{path}}"
 
     - name: moving the wildffly into /opt/wildfly
